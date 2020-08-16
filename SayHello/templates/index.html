@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% from 'bootstrap/form.html' import render_form %}
+
+{% block content %}
+    <div class="hello-form">
+        {{ render_form(form, action=request.full_path) }}
+    </div>
+    <h5>{{ messages|length }} messages
+        <small class="float-right">
+            <a href="#bottom" title="Go Bottom">&darr;</a>
+        </small>
+    </h5>
+    <div class="list-group">
+        {% for message in messages %}
+            <a class="list-group-item list-group-item-action flex-column">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1 text-success">{{ message.name }}
+                        <small class="text-muted"> #{{ loop.revindex }}</small>
+                    </h5>
+                    <small data-toggle="tooltip" data-placement="top"
+                           data-delay="500">
+                        {{ message.timestamp }}
+                    </small>
+                </div>
+                <p class="mb-1">{{ message.body }}</p>
+            </a>
+    <script type="text/javascript">window.onload = function () {
+        var config = {
+            vx: 4,
+            vy: 4,
+            height: 2,
+            width: 2,
+            count: 100,
+            color: "121, 162, 185",
+            stroke: "100, 200, 180",
+            dist: 10000,
+            e_dist: 20000,
+            max_conn: 15
+        };
+        CanvasParticle(config);
+    }</script>
+        {% endfor %}
+    </div>
+
+
+    <script type="text/javascript" src="{{url_for('static',filename='./js/canvas-particle.js')}}"></script>
+
+{% endblock %}

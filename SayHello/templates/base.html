@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial">
+    <title>
+        {% block title %} 🍓.Smile的留言板 {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{{url_for('static',filename='css/bootstrap.min.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}" type="text/css">
+
+</head>
+<body>
+<main class="container">
+    <header>
+        <h1 class="text-center display-4">
+            <a href="{{ url_for('index') }}" class="text-success">
+                <strong>
+                    Smile  ~
+                </strong>
+            </a>
+            <small style="font-size:24px" class="text-muted">
+                世界都在看 !
+            </small>
+        </h1>
+    </header>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-info">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    {% block content %} {% endblock %}
+    <footer>
+        {% block footer %}
+        <p><a id="bottom" href="#" title="Go ToP">&uarr;</a></p>
+        {% endblock %}
+    </footer>
+</main>
+
+<script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.2.1.slim.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/popper.min.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.js')}}"></script>
+<script type="text/javascript" src="{{url_for('static',filename='js/script.js')}}"></script>
+
+{{ moment.include_moment(local_js=url_for('static',filename='js/moment-with-locales.min.js')) }}
+</body>
+</html>
