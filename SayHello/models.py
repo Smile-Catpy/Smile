@@ -7,10 +7,10 @@ import sqlalchemy.ext.declarative  # 父类的结构定义
 import sqlalchemy.orm  # ORM的所有工具
 import sqlalchemy.orm.session  # 数据库操作的核心
 import datetime  # ORM组件要使用具体的日期类型
-
+form app import mysql_pwd
 # 定义MySQL数据库方言(直接在连接上通过字符串的形式定义了)以及连接地址
 # 当前给定的地址里面还有一个MySql-connector
-MYSQL_URL = "mysql+mysqlconnector://root:admin@localhost:3306/E6B034E9E1772CE9B1617B2616B3E507"
+MYSQL_URL = "mysql+mysqlconnector://root:{}@localhost:3306/E6B034E9E1772CE9B1617B2616B3E507".format(mysql_pwd)
 
 
 class TEXT(sqlalchemy.ext.declarative.declarative_base()):  # ORM的项目里，每一个映射类都代表一张表
