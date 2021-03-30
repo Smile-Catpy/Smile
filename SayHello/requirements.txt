@@ -159,7 +159,7 @@ pycurl==7.43.0.5
 pydocstyle @ file:///tmp/build/80754af9/pydocstyle_1592848020240/work
 pyflakes==2.2.0
 PyGetWindow==0.0.8
-Pygments==2.6.1
+Pygments==2.7.4
 pylint @ file:///C:/ci/pylint_1592482039483/work
 PyMsgBox==1.0.8
 PyNaCl @ file:///C:/ci/pynacl_1595000047588/work
